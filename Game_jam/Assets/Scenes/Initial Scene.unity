@@ -799,8 +799,8 @@ Transform:
   m_GameObject: {fileID: 367587814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4467669, y: -7.6717587, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.22000003, y: -7.82, z: -0.6488}
+  m_LocalScale: {x: 1.8245039, y: 1.8245039, z: 1.8245039}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1316256098}
@@ -817,6 +817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051e9a7421da70248a6587c268c85021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: 0}
   parallaxFactor: 0.95
 --- !u!212 &367587817
 SpriteRenderer:
@@ -909,8 +912,8 @@ Transform:
   m_GameObject: {fileID: 585164171}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4467669, y: -7.6717587, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.22000003, y: -7.82, z: -0.6488}
+  m_LocalScale: {x: 1.8245039, y: 1.8245039, z: 1.8245039}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1316256098}
@@ -927,6 +930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051e9a7421da70248a6587c268c85021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: 0}
   parallaxFactor: 0.85
 --- !u!212 &585164174
 SpriteRenderer:
@@ -1007,8 +1013,8 @@ Transform:
   m_GameObject: {fileID: 687682803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4467669, y: -7.6717587, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.22, y: -7.82, z: 6.6488}
+  m_LocalScale: {x: 1.8245039, y: 1.8245039, z: 1.8245039}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1316256098}
@@ -1025,6 +1031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051e9a7421da70248a6587c268c85021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: 0}
   parallaxFactor: 1
 --- !u!212 &687682806
 SpriteRenderer:
@@ -1104,7 +1113,7 @@ Transform:
   m_GameObject: {fileID: 1316256097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4467669, y: 7.6717587, z: -0.07540914}
+  m_LocalPosition: {x: 3.4467669, y: 7.6717587, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1125,6 +1134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18457f65ffa4dfa45900af90ab665b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 3465960505373262649}
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: 0}
   parallaxCamera: {fileID: 408058511}
 --- !u!1 &2001283102
 GameObject:
