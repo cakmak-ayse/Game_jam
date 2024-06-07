@@ -65,11 +65,11 @@ public class player_script : MonoBehaviour
 
     }
     //Check if Grounded
-    void OnTriggerEnter2D()
+    void OnCollisionEnter2D()
     {
         grounded = true;
     }
-    void OnTriggerExit2D()
+    void OnCollisionExit2D()
     {
         grounded = false;
     }
