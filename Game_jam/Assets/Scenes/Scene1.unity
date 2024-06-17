@@ -253,11 +253,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1564373810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6908016721301820795, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
+  m_PrefabInstance: {fileID: 1945736052}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1564373815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1825566283361775952, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
   m_PrefabInstance: {fileID: 1945736052}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1564373816
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564373810}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efa8d130354324d4abd809e3f3ff4447, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1945736052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,8 +293,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1825566283361775952, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825566283361775952, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825566283361775952, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1825566283361775952, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
       propertyPath: m_LocalPosition.y
@@ -314,10 +348,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7485543405880107803, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
+    - target: {fileID: 7485543405880107803, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6908016721301820795, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1564373816}
   m_SourcePrefab: {fileID: 100100000, guid: b700e8d6cee231d41a7258df91db1a70, type: 3}
 --- !u!1 &2068890705
 GameObject:

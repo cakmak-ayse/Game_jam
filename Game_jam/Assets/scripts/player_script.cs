@@ -99,48 +99,73 @@ public class player_script : MonoBehaviour
     //     grounded = false;
     // }
 
-    //Betul movement code
-    public float speed;
-    public float jump;
-    float moveVelocity;
+    public float speed;      // Movement speed of the player
+    public float jump;       // Jump force applied when jumping
+    float moveVelocity;      // Horizontal velocity of the player
 
-    //Grounded Vars
+    // Grounded flag
     bool grounded = true;
 
-    void Update () 
+    // For sprite flipping
+    private bool facingRight = true;  // Flag to track if the player is facing right
+
+    void Update()
     {
-        //Jumping
-        if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.W)) 
+        // Jumping
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W))
         {
-            if(grounded)
+            if (grounded)
             {
-                GetComponent<Rigidbody2D> ().velocity = new Vector2 (GetComponent<Rigidbody2D> ().velocity.x, jump);
+                // Apply jump force if grounded
+                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
             }
         }
 
         moveVelocity = 0;
 
-        //Left Right Movement
-        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
+        // Left Right Movement
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            // Move left
             moveVelocity = -speed;
+            if (facingRight)
+            {
+                // If facing right, flip to face left
+                Flip();
+            }
         }
-        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            // Move right
             moveVelocity = speed;
+            if (!facingRight)
+            {
+                // If not facing right, flip to face right
+                Flip();
+            }
         }
 
-        GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody2D> ().velocity.y);
-
+        // Apply horizontal velocity
+        GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
     }
-    
-    //Check if Grounded
+
+    // Check if Grounded
     void OnCollisionEnter2D()
     {
-        grounded = true;
+        grounded = true;  // Set grounded to true when collision occurs
     }
+
     void OnCollisionExit2D()
     {
-        grounded = false;
+        grounded = false;  // Set grounded to false when exiting collision
+    }
+
+    // Flip the player sprite horizontally
+    void Flip()
+    {
+        facingRight = !facingRight;  // Toggle the facingRight flag
+        Vector3 theScale = transform.localScale;  // Get the current scale of the player
+        theScale.x *= -1;  // Flip the x scale by multiplying it by -1
+        transform.localScale = theScale;  // Apply the new scale to flip the player sprite
     }
 }
