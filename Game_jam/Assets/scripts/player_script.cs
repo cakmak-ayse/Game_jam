@@ -144,6 +144,8 @@
 //     //     grounded = false;
 //     // }
 // }
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -153,7 +155,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private bool isLookingRight = true;
-    private bool grounded = true;
 
     public float moveSpeed = 6f; // Movement speed of the player
     public float jumpForce = 8f; // Jump force of the player
@@ -166,42 +167,40 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Check for left and right movement keys
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        // Reset velocity if no movement key is pressed
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A) &&
+            !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D))
         {
-           // animator.SetBool("IsWalking", true);
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            animator.SetBool("IsWalking", false);
+        }
+
+        // Check for left and right movement keys
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
             if (isLookingRight)
             {
                 Flip();
             }
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+            animator.SetBool("IsWalking", true);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            //animator.SetBool("IsWalking", true);
             if (!isLookingRight)
             {
                 Flip();
             }
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A) ||
-                 Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D))
-        {
-           // animator.SetBool("IsWalking", false);
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            animator.SetBool("IsWalking", true);
         }
 
         // Check for jump
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && animator.GetBool("IsGrounded"))
         {
-            //animator.SetBool("IsJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-
-        if (grounded)
-        {
-           //animator.SetBool("IsJumping", false);
+            animator.SetBool("IsJumping", true);
+            animator.SetBool("IsGrounded", false);
         }
     }
 
@@ -219,7 +218,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            grounded = true;
+            animator.SetBool("IsGrounded", true);
+            animator.SetBool("IsJumping", false);
         }
     }
 
@@ -227,7 +227,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            grounded = false;
+            animator.SetBool("IsGrounded", false);
         }
     }
 }
+
